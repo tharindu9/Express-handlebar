@@ -1,9 +1,17 @@
 var express = require('express');
 var router = express.Router();
+var mySqlConnecton = require('../config');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+  mySqlConnecton.query("select * from employee", (err, rows) => {
+    if (err) {
+        console.log(err)
+        throw err;
+    } else {
+        res.send(rows);
+    }
+})
 });
 
 module.exports = router;
