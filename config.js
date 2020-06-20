@@ -9,7 +9,7 @@ var settings = {
     password: "",
 }
 
-dbConnection = function(){
+var dbConnection = function(){
     if(!mySqlConnecton){
 //create mysql connection
  mySqlConnecton = mySql.createConnection(settings)
