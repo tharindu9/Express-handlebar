@@ -9,21 +9,22 @@ var settings = {
     password: "",
 }
 
-var dbConnection = function(){
+const dbConnection = function(){
     if(!mySqlConnecton){
-//create mysql connection
- mySqlConnecton = mySql.createConnection(settings)
+        //create mysql connection
+         mySqlConnecton = mySql.createConnection(settings)
 
 
 mySqlConnecton.connect((err) => {
     if (!err) {
         console.log('connection sucess')
-    } else {
-        console.log('conection faild')
+    } 
+    else {
+        console.log('conection faild',err)
     }
 })
 }
-return mySqlConnecton;
+    return mySqlConnecton;
 }
 
 module.exports = dbConnection();

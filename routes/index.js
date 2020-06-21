@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 })
 });
 
-router.post('/add-user',function(req,response){
+router.post('/add-user',function(req,res){
 
     const userData = {
         name    : req.body.name,
@@ -24,10 +24,16 @@ router.post('/add-user',function(req,response){
     }
 
     mySqlConnecton.query("Insert into employee SET ?",userData, function(err,result){
-        if(err){
-            throw err;
-        }
-        response.redirect('/')
+        if(err) throw err;
+        res.redirect('/')
+    })
+})
+
+router.get('/delete-user/:id',function(req,res){
+    var id = req.params.id;
+    mySqlConnecton.query("delete from employee where id=?",[id],function(err,result){
+        if(err) throw err;
+        res.redirect('/');
     })
 })
 
