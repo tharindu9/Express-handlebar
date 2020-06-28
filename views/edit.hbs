@@ -1,0 +1,28 @@
+
+<div class="container">
+  <h3>Employee form</h3>
+
+    {{#each employees}}
+  <form action="/update-user/{{this.id}}" method="POST">
+    <div class="form-group">
+      <label for="fname"> Name </label>
+      <input type="text" class="form-control" id="fname" placeholder="Enter First name" name="name" value="{{this.name}}">
+    </div>
+    <div class="form-group">
+      <label for="age">Age:</label>
+      <input type="text" class="form-control" id="lanme" placeholder="Enter Age" name="age" value="{{this.age}}">
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input type="email" class="form-control" id="email" placeholder="Enter Email" name="email" value="{{this.email}}">
+    </div>
+    <div class="form-group">
+      <label for="position">Position:</label>
+      <input type="text" class="form-control" id="position" placeholder="Enter Position" name="position" value="{{this.position}}">
+    </div>
+   
+    <button type="submit" class="btn btn-primary">Edit User</button>
+  </form>
+     {{/each}}
+
+    </div>
